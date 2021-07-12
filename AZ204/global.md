@@ -50,3 +50,14 @@ Powershell:
 ```PS
   ssh-keygen -t rsa -b 4096
 ```
+
+## ARM Templates
+### Deploy
+Powershell:
+```PS
+  New-AzResourceGroupDeployment `
+    -Name testDeployment `
+    -ResourceGroupName 'rg-az204' `
+    -TemplateFile './template.json' `
+    -TemplateParameterFile './parameters.json' 
+```
