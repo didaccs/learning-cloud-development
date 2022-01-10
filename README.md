@@ -12,6 +12,6 @@ This is my study guide for cloud topics.
  - [AZ 204](AZ204.md)
 
  # Microsoft Azure Courses
- - [Azure DevOps - Alberto Picazo](https://www.youtube.com/watch?v=j6IcHa3Vs04&list=PLU3UD_RM_1AZ6ceFILghwm4MKn-Ojo87e)
+ - [Azure DevOps - Alberto Picazo](https://www.youtube.com/watch?v=x8jGCPlp8N8&list=PLU3UD_RM_1AZLs5iiopDXeEZQGOINWgoa)
  - [Azure, ARM & Docker - Alberto Picazo](https://www.youtube.com/watch?v=VJEFlVR9KZs&list=PLU3UD_RM_1AYINK0PqCvodASDkn_0a_Hv)
  - [Azure - Alberto Picazo](https://www.youtube.com/watch?v=j6IcHa3Vs04&list=PLU3UD_RM_1AZ6ceFILghwm4MKn-Ojo87e)
