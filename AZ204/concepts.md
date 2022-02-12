@@ -20,4 +20,11 @@
  - To redirect users to Non Production slot add the header "x-ms-routing-name=staging"
  - To redirect users to Production slot add the header "x-ms-routing-name=self"
 
+## Azure Functions
 
+### Hosting Options
+ - Consumption plan: default plan, scales automatically and pay for compute resources, automatic scalling and wake up. Limited to 1.5Gb of memory and 1 CPU.
+ - Premium plan: automatic scalling and reduce delay on wake up, can connect to virtual network
+ - App Service plan: use the resources of the App Service, durable functions can't be used. (always on can mantain azure function active instead activate on an http request)
+ - App Service Environment (ASE): fully isolated environment
+ - Kubernetes: fully isolated environment working on kubernetes
