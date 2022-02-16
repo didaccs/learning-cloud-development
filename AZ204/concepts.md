@@ -28,3 +28,10 @@
  - App Service plan: use the resources of the App Service, durable functions can't be used. (always on can mantain azure function active instead activate on an http request)
  - App Service Environment (ASE): fully isolated environment
  - Kubernetes: fully isolated environment working on kubernetes
+
+### Bindings
+ - In/out bindings are optional and can have more than one of each
+ - In .net and Java the types of the bindings is defined in the data type and attributes and can't be created on the portal
+ - For languages dinamically typed use the dataType on function.json file to define the type of the parameter such as stream, string or binary
+ - The binding direction options are in, out or inout (only for advanced editor), triggers allways have in direction
+
