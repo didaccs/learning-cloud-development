@@ -1,6 +1,7 @@
-# Concepts
-
+# Compute Solutions Concepts
+ 
 ## Azure App Service
+
 ### Scalling
  - Scale up/down -> increase or decrease resources of the instances (ram, cpu...)
  - Scale in/out -> increase or decrease the number of the instances
@@ -35,3 +36,22 @@
  - For languages dinamically typed use the dataType on function.json file to define the type of the parameter such as stream, string or binary
  - The binding direction options are in, out or inout (only for advanced editor), triggers allways have in direction
 
+## Durable functions
+
+### Application patterns:
+ - Function chaining: a sequence of functions executes in a specific order
+ - Fan-out/fan-in: execute multiple functions in parallel and then wait for all functions to finish
+ - Async HTTP APIs: coordinating the state of long-running operations with external clients
+ - Monitor: polling until specific conditions are met (recurring process in a workflow)
+ - Human interaction: involve some kind of human interaction
+
+ ### Function types
+  - Orchestrator: describe how actions are executed and the order in which actions are executed
+  - Activity: basic unit of work in a durable function orchestration
+  - Entity (aka durable entities): reading and updating small pieces of state to manage state explicitly
+  - Client: Using an orchestrator client or entity client deliver the message to the the task hub that starts the orchestrator or entity functions.
+
+### Task hub
+ - Logical container for durable storage resources
+ - Orchestrator, activity, and entity functions can only directly interact with each other when they belong to the same task hub
+ - Resources used in the task hub: control queues, work-item queue, history table, instances table, storage container for blobs and large message payloads
