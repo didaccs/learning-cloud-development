@@ -28,3 +28,9 @@ This command create a default resource group and default app service plan the cr
 ```bash
   az webapp log tail --name appname --resource-group myResourceGroup
 ```
+
+### Create Block blob storage
+```bash
+  az storage account create --resource-group myResourceGroup --name <myStorageAcct> --location <myLocation> --kind BlockBlobStorage  -sku Premium_LRS
+```
+
