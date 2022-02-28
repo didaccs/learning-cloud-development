@@ -34,3 +34,10 @@ This command create a default resource group and default app service plan the cr
   az storage account create --resource-group myResourceGroup --name <myStorageAcct> --location <myLocation> --kind BlockBlobStorage  -sku Premium_LRS
 ```
 
+### Add lifecycle management policy on blob storage
+```bash
+  az storage account management-policy create \
+    --account-name <storage-account> \
+    --policy @policy.json \
+    --resource-group <resource-group>
+```

@@ -12,7 +12,7 @@
 Access tier can be set during or after upload:
  - Hot: expensive to store but cheap to access (default option on new storage accounts)
  - Cool: expensive to access but cheap to store (recommend to store data at least 30 days infrequently accessed)
- - Archive: most expensive to access but most cheap to store (recommend to store data at least 180 days infrequently accessed and set at block level) 
+ - Archive: most expensive to access but most cheap to store (recommend to store data at least 180 days infrequently accessed and set at block level). To rehydrate is possible copy to an online tier (hot or cool) in the same storage or change tier and can be done with standard priority (up to 15 hours) or high priority (under 1 hour for under 10 gb) with the header "x-ms-rehydrate-priority".
 
 ### Blob types
  - Block blobs: text and binary data, up to about 4.7 TB (for high transaction rates and fast access time)
@@ -50,3 +50,46 @@ Redundancy in the secondary region:
   - tierToArchive: for blockBlob
   - delete: for blockBlob and appendBlob
 
+### Lifecycle policies
+A policy is a collection of rules, and each rule includes a filter set and an action set. Actions are applied to the filtered blobs when the run condition is met. To add new one go to your storage account -> Data Management -> Lifecycle management.
+Example:
+```JSON
+{
+  "rules": [
+    {
+      "name": "ruleFoo",    // rule name
+      "enabled": true,      // enable or disable rule
+      "type": "Lifecycle",  // only Lifecycle is accepted
+      "definition": {     
+        "filters": {
+          "blobTypes": [ "blockBlob" ],           // array of blockBlob, appendBlob or pageBlob
+          "prefixMatch": [ "container1/foo" ],    // array of prefix string started always with container name
+          "blobIndexMatch" : [ "fooTest" ]        // array of blob index tag key and value conditions                            
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToCool": { "daysAfterModificationGreaterThan": 30 },                 // only supported for block blob 
+            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },              // only supported for block blob 
+            "enableAutoTierToHotFromCool": {"daysAfterModificationGreaterThan": 90},  // supported for baseBlob and block blob
+            "delete": { "daysAfterModificationGreaterThan": 2555 }                    // supported for block blob and appendBlob
+          },
+          "version": {
+            "delete": { "daysAfterModificationGreaterThan": 90 }
+          }, 
+          "snapshot": {
+            "delete": { "daysAfterCreationGreaterThan": 90 }   // daysAfterCreationGreaterThan is the condition for snapshots only 
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+### Blob Storage Client Library
+Main classes .NET Library:
+ - BlobClient: manipulate Azure Storage blobs
+ - BlobClientOptions: client configuration options for connecting
+ - BlobContainerClient: manipulate Azure Storage containers and their blobs
+ - BlobServiceClient: manipulate Azure Storage service resources and blob containers
+ - BlobUriBuilder: modify the Uri instance to point to different Azure Storage resources like an account, container, or blob
