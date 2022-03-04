@@ -29,15 +29,31 @@ This command create a default resource group and default app service plan the cr
   az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-### Create Block blob storage
-```bash
-  az storage account create --resource-group myResourceGroup --name <myStorageAcct> --location <myLocation> --kind BlockBlobStorage  -sku Premium_LRS
-```
-
 ### Add lifecycle management policy on blob storage
 ```bash
   az storage account management-policy create \
     --account-name <storage-account> \
     --policy @policy.json \
     --resource-group <resource-group>
+```
+
+## Azure Storage
+
+### Create Storage account
+Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. Your storage account name must be unique within Azure.
+```bash
+  az storage account create \
+    --resource-group <resource-group> \
+    --name <myStorageAcct> \
+    --location <myLocation> \
+    --sku Standard_LRS
+```
+
+### Create Block blob storage
+```bash
+  az storage account create \
+    --resource-group myResourceGroup \
+    --name <myStorageAcct> \
+    --location <myLocation> \
+    --kind BlockBlobStorage  -sku Premium_LRS
 ```

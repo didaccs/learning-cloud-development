@@ -93,3 +93,8 @@ Main classes .NET Library:
  - BlobContainerClient: manipulate Azure Storage containers and their blobs
  - BlobServiceClient: manipulate Azure Storage service resources and blob containers
  - BlobUriBuilder: modify the Uri instance to point to different Azure Storage resources like an account, container, or blob
+
+ ### Blob Storage Metadata
+  - System properties: some correspond to certain standard HTTP headers
+  - User-defined metadata: one or more name-value pairs that you specify. You can use metadata to store additional values with the resource.
+
