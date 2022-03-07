@@ -98,3 +98,17 @@ Main classes .NET Library:
   - System properties: some correspond to certain standard HTTP headers
   - User-defined metadata: one or more name-value pairs that you specify. You can use metadata to store additional values with the resource.
 
+ - Header Format: x-ms-meta-name:string-value
+ - Get Headers from a container: ``` GET/HEAD https://myaccount.blob.core.windows.net/mycontainer?restype=container ```
+ - Get Headers from a blob: ``` GET/HEAD https://myaccount.blob.core.windows.net/mycontainer/myblob?comp=metadata ```
+ - Set headers on a container: ``` PUT https://myaccount.blob.core.windows.net/mycontainer?comp=metadata&restype=container ```
+ - Set headers on a blob: ``` PUT https://myaccount.blob.core.windows.net/mycontainer/myblob?comp=metadata ```
+
+
+
+## Cosmos DB
+
+The base unit for global distribution is the Azure Cosmos Account which contains a unique DNS name. There is a limit of 50 Azure Cosmos Accounts for each subscription (can be increased by support).
+An Azure Cosmos account can have multiple databases (Keyspace on cassandra API, and Not available on Table API) and can have some Azure Cosmos Containers.
+The Azure cosmos containers is horizontally partitioned and ditributed across regions and could have dedicated provisioned throughput (exclusively throughput reserved for that container) or shared provisioned throughput (throughput shared with all containers in the same database).
+The Azure Comso Item located on the containers is mapped to different specific entities, Item for SQL Api, Row in Cassandra API, Document on MongoDb API, Node or edge on Gremplin API or Item for Table API.
