@@ -112,3 +112,11 @@ The base unit for global distribution is the Azure Cosmos Account which contains
 An Azure Cosmos account can have multiple databases (Keyspace on cassandra API, and Not available on Table API) and can have some Azure Cosmos Containers.
 The Azure cosmos containers is horizontally partitioned and ditributed across regions and could have dedicated provisioned throughput (exclusively throughput reserved for that container) or shared provisioned throughput (throughput shared with all containers in the same database).
 The Azure Comso Item located on the containers is mapped to different specific entities, Item for SQL Api, Row in Cassandra API, Document on MongoDb API, Node or edge on Gremplin API or Item for Table API.
+
+### Consistency levels
+From strong consistency to weaker consistency these are the consistency levels:
+ - Strong: guarantee the reads are the last version, but it's the lowest option
+ - Bounded Staleness
+ - Session: is the optimal and recommended option (default option)
+ - Consistent prefix
+ - Eventual: for highest availability and the lowest latency
