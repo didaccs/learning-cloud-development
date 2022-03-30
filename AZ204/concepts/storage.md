@@ -120,3 +120,10 @@ From strong consistency to weaker consistency these are the consistency levels:
  - Session: is the optimal and recommended option (default option)
  - Consistent prefix
  - Eventual: for highest availability and the lowest latency
+
+### Supported APIs
+ - Core (SQL) Api: document in JSON format, queries in SQL and  full availability of new features
+ - Cassandra API: column-oriented, queries in CQL
+ - MongoDb API: document in BSON format, some features are not available
+ - Gremplin API: data as edges and vertices, graph queries, best for dynamic data with complex relations
+ - Table API: key/value format, best than Azure Table storage
