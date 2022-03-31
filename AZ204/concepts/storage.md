@@ -127,3 +127,10 @@ From strong consistency to weaker consistency these are the consistency levels:
  - MongoDb API: document in BSON format, some features are not available
  - Gremplin API: data as edges and vertices, graph queries, best for dynamic data with complex relations
  - Table API: key/value format, best than Azure Table storage
+
+### Resources Provisioning
+The cost of provisioning resources is measured with request units (RUs):
+ - Provisioned throughput mode: fixed provisioning of RUs per second basis
+ - Serverless mode: any provision required, charged by consume
+ - Autoscale mode: autoscale RUs based on usage
+
