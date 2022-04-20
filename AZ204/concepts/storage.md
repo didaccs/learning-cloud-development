@@ -134,3 +134,6 @@ The cost of provisioning resources is measured with request units (RUs):
  - Serverless mode: any provision required, charged by consume
  - Autoscale mode: autoscale RUs based on usage
 
+### Partitioning
+A container has some logical partitions which items has the same partition key, the number of different partition keys determine the number of logical partitions.
+A physical partition can hold one logical partition or more, that depends of the Ru/s (max 10000Ru/s per physical partition) and total data storage (max 50Gb by partition), this partitions are managed by Azure.
