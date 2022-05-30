@@ -1,6 +1,7 @@
 # Compute Solutions Concepts
  
 ## Azure App Service
+Is a service to hosting applications based on http (Web App, Api App, Mobile App, Functions or Logic Apps). The resources assigned to run those applications are defined by the App Plan (RAM, CPU, storage...).
 
 ### Scalling
  - Scale up/down -> increase or decrease resources of the instances (ram, cpu...)
