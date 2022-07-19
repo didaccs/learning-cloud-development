@@ -113,6 +113,8 @@ An Azure Cosmos account can have multiple databases (Keyspace on cassandra API, 
 The Azure cosmos containers is horizontally partitioned and ditributed across regions and could have dedicated provisioned throughput (exclusively throughput reserved for that container) or shared provisioned throughput (throughput shared with all containers in the same database).
 The Azure Comso Item located on the containers is mapped to different specific entities, Item for SQL Api, Row in Cassandra API, Document on MongoDb API, Node or edge on Gremplin API or Item for Table API.
 
+Description for RU's (Request Units): https://docs.microsoft.com/en-us/azure/cosmos-db/request-units
+
 ### Consistency levels
 From strong consistency to weaker consistency these are the consistency levels:
  - Strong: guarantee the reads are the last version, but it's the lowest option
@@ -137,3 +139,7 @@ The cost of provisioning resources is measured with request units (RUs):
 ### Partitioning
 A container has some logical partitions which items has the same partition key, the number of different partition keys determine the number of logical partitions.
 A physical partition can hold one logical partition or more, that depends of the Ru/s (max 10000Ru/s per physical partition) and total data storage (max 50Gb by partition), this partitions are managed by Azure.
+
+## SQL Database
+
+Description for DTUs: https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu?view=azuresql
