@@ -140,6 +140,13 @@ The cost of provisioning resources is measured with request units (RUs):
 A container has some logical partitions which items has the same partition key, the number of different partition keys determine the number of logical partitions.
 A physical partition can hold one logical partition or more, that depends of the Ru/s (max 10000Ru/s per physical partition) and total data storage (max 50Gb by partition), this partitions are managed by Azure.
 
+#### Synthetic Partition Key
+Is a partition key with many distinct values in it, available kinds:
+ - concatenate properties
+ - random suffix (improve write throughput but difficult to read)
+ - pre-calculated suffix (improve write throughput and easy to read)
+
+
 ## SQL Database
 
 Description for DTUs: https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu?view=azuresql
